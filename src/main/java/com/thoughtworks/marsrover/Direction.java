@@ -28,4 +28,6 @@ public abstract class Direction {
     public abstract Direction left();
 
     public abstract String getDirection();
+
+    public abstract Location move(Location location);
 }

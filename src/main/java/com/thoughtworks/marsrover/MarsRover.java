@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MarsRover {
-    private final Location location;
+    private Location location;
     private Direction direction;
 
     public MarsRover(Location location, Direction direction) {
@@ -34,6 +34,10 @@ public class MarsRover {
 
         if(command.equals("R")) {
             this.direction = this.direction.right();
+        }
+
+        if(command.equals("M")) {
+            this.location = this.direction.move(this.location);
         }
 
         return this.report();

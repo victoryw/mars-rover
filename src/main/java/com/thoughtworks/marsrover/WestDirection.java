@@ -16,4 +16,9 @@ public class WestDirection extends Direction {
     public String getDirection() {
         return West;
     }
+
+    @Override
+    public Location move(Location location) {
+        return new Location(location.getX() + 1, location.getY());
+    }
 }

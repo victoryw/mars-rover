@@ -18,5 +18,10 @@ public class NorthDirection extends Direction {
     public String getDirection() {
         return North;
     }
+
+    @Override
+    public Location move(Location location) {
+        return new Location(location.getX(), location.getY() + 1);
+    }
 }
 
