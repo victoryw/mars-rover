@@ -15,7 +15,8 @@ public class MarsRover {
     }
 
     public static MarsRover init(String initStr) {
-        final List<String> init = Arrays.stream(initStr.split("")).filter(anObject -> !" ".equals(anObject)).collect(Collectors.toList());
+        final List<String> init = Arrays.stream(initStr.split("")).
+                filter(anObject -> !" ".equals(anObject)).collect(Collectors.toList());
         final int x = Integer.parseInt(init.get(0));
         final int y = Integer.parseInt(init.get(1));
         Location location = new Location(x, y);
@@ -27,18 +28,20 @@ public class MarsRover {
         return String.format("%d %d %s", location.getX(), location.getY(), direction.getDirection());
     }
 
-    public String receive(String command) {
-        if(command.equals("L")) {
-            this.direction = this.direction.left();
-        }
-
-        if(command.equals("R")) {
-            this.direction = this.direction.right();
-        }
-
-        if(command.equals("M")) {
-            this.location = this.direction.move(this.location);
-        }
+    public String receive(String commands) {
+        Arrays.asList(commands.split("")).forEach(command -> {
+            switch (command) {
+                case "L":
+                    this.direction = this.direction.left();
+                    break;
+                case "R":
+                    this.direction = this.direction.right();
+                    break;
+                case "M":
+                    this.location = this.direction.move(this.location);
+                    break;
+            }
+        });
 
         return this.report();
     }
