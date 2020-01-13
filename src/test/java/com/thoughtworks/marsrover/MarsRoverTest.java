@@ -42,4 +42,32 @@ public class MarsRoverTest {
         final String report = marsRover.receive("R");
         Assert.assertEquals("0 0 N", report);
     }
+
+    @Test
+    public void should_turn_to_east_when_the_faced_south_rover_receive_left_command() {
+        marsRover = MarsRover.init("0 0 S");
+        final String report = marsRover.receive("L");
+        Assert.assertEquals("0 0 E", report);
+    }
+
+    @Test
+    public void should_turn_to_west_when_the_faced_south_rover_receive_right_command() {
+        marsRover = MarsRover.init("0 0 S");
+        final String report = marsRover.receive("R");
+        Assert.assertEquals("0 0 W", report);
+    }
+
+    @Test
+    public void should_turn_to_north_when_the_faced_east_rover_receive_left_command() {
+        marsRover = MarsRover.init("0 0 E");
+        final String report = marsRover.receive("L");
+        Assert.assertEquals("0 0 N", report);
+    }
+
+    @Test
+    public void should_turn_to_south_when_the_faced_east_rover_receive_right_command() {
+        marsRover = MarsRover.init("0 0 E");
+        final String report = marsRover.receive("R");
+        Assert.assertEquals("0 0 S", report);
+    }
 }

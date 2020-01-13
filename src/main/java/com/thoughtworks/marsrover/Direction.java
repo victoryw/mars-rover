@@ -12,23 +12,11 @@ public abstract class Direction {
             return new WestDirection();
         }
 
-        return new Direction() {
-            @Override
-            public Direction right() {
-                return null;
-            }
+        if(direction.equals("S")) {
+            return new SouthDirection();
+        }
 
-            @Override
-            public Direction left() {
-                return null;
-            }
-
-            @Override
-            public String getDirection() {
-                return direction;
-            }
-        };
-
+        return new EastDirection();
     }
 
     public abstract Direction right();
