@@ -6,17 +6,17 @@ public class NorthDirection extends Direction {
 
     @Override
     public Direction right() {
-        return createDirection("W");
+        return createDirection(West);
     }
 
     @Override
     public Direction left() {
-        return createDirection("E");
+        return createDirection(East);
     }
 
     @Override
     public String getDirection() {
-        return "N";
+        return North;
     }
 }
 

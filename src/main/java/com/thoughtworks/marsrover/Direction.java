@@ -2,17 +2,21 @@ package com.thoughtworks.marsrover;
 
 public abstract class Direction {
 
+    protected static final String North = "N";
+    protected static final String West = "W";
+    protected static final String South = "S";
+    protected static final String East = "E";
 
     public static Direction createDirection(String direction) {
-        if(direction.equals("N")) {
+        if(direction.equals(North)) {
             return new NorthDirection();
         }
 
-        if(direction.equals("W")) {
+        if(direction.equals(West)) {
             return new WestDirection();
         }
 
-        if(direction.equals("S")) {
+        if(direction.equals(South)) {
             return new SouthDirection();
         }
 

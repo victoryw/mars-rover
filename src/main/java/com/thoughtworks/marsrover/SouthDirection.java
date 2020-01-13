@@ -3,17 +3,17 @@ package com.thoughtworks.marsrover;
 public class SouthDirection extends Direction {
     @Override
     public Direction right() {
-        return createDirection("W");
+        return createDirection(West);
     }
 
     @Override
     public Direction left() {
-        return createDirection("E");
+        return createDirection(East);
     }
 
     @Override
     public String getDirection() {
-        return "S";
+        return South;
     }
 }
 

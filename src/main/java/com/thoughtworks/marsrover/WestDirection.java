@@ -4,16 +4,16 @@ public class WestDirection extends Direction {
 
     @Override
     public Direction right() {
-        return createDirection("N");
+        return createDirection(North);
     }
 
     @Override
     public Direction left() {
-        return createDirection("S");
+        return createDirection(South);
     }
 
     @Override
     public String getDirection() {
-        return "W";
+        return West;
     }
 }
