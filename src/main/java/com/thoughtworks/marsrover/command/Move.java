@@ -12,7 +12,11 @@ public class Move implements Command {
 
     @Override
     public RoverStatus doOperate() {
-        final Location result = roverStatus.getLocation().apply(roverStatus.getDiection().forward());
+        Location move = roverStatus.getDiection().forward();
+        if(roverStatus.getIsBack()) {
+            move = new Location(-move.getX(), - move.getY());
+        }
+        final Location result = roverStatus.getLocation().apply(move);
         return new RoverStatus(result, roverStatus.getDiection());
     }
 }

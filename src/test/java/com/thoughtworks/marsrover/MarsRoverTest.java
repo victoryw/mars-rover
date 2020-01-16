@@ -105,4 +105,11 @@ public class MarsRoverTest {
         final String report = marsRover.receive("RM");
         Assert.assertEquals("0 1 N", report);
     }
+
+    @Test
+    public void should_into_back_status() {
+        marsRover = MarsRover.init("0 0 W");
+        final String report = marsRover.receive("BM");
+        Assert.assertEquals("1 0 W", report);
+    }
 }

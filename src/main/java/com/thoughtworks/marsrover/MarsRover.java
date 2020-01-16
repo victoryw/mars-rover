@@ -48,6 +48,9 @@ public class MarsRover {
                 case "M":
                     newStatus = new Move(newStatus).doOperate();
                     break;
+                case "B":
+                    newStatus = new Back(newStatus).doOperate();
+                    break;
             }
             this.direction = newStatus.getDiection();
             this.location = newStatus.getLocation();
