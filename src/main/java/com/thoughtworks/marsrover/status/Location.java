@@ -1,4 +1,4 @@
-package com.thoughtworks.marsrover;
+package com.thoughtworks.marsrover.status;
 
 public class Location {
     private final int x;
@@ -16,5 +16,9 @@ public class Location {
 
         this.x = x;
         this.y = y;
+    }
+
+    public Location apply(Location next) {
+        return new Location(x + next.getX(), y + next.getY());
     }
 }

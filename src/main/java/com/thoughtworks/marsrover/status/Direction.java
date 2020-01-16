@@ -1,4 +1,4 @@
-package com.thoughtworks.marsrover;
+package com.thoughtworks.marsrover.status;
 
 public abstract class Direction {
 
@@ -29,5 +29,5 @@ public abstract class Direction {
 
     public abstract String getDirection();
 
-    public abstract Location move(Location location);
+    public abstract Location forward();
 }

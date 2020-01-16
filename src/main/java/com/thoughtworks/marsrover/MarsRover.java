@@ -1,5 +1,12 @@
 package com.thoughtworks.marsrover;
 
+import com.thoughtworks.marsrover.command.Move;
+import com.thoughtworks.marsrover.command.TurnLeft;
+import com.thoughtworks.marsrover.command.TurnRight;
+import com.thoughtworks.marsrover.status.Direction;
+import com.thoughtworks.marsrover.status.Location;
+import com.thoughtworks.marsrover.status.RoverStatus;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +16,6 @@ public class MarsRover {
     private Direction direction;
 
     public MarsRover(Location location, Direction direction) {
-
         this.location = location;
         this.direction = direction;
     }
@@ -30,17 +36,21 @@ public class MarsRover {
 
     public String receive(String commands) {
         Arrays.asList(commands.split("")).forEach(command -> {
+            RoverStatus newStatus = new RoverStatus(this.location, this.direction);
             switch (command) {
                 case "L":
-                    this.direction = this.direction.left();
+                    newStatus = new TurnLeft(newStatus).doOperate();
+                    this.direction = newStatus.getDiection();
                     break;
                 case "R":
-                    this.direction = this.direction.right();
+                    newStatus = new TurnRight(newStatus).doOperate();
                     break;
                 case "M":
-                    this.location = this.direction.move(this.location);
+                    newStatus = new Move(newStatus).doOperate();
                     break;
             }
+            this.direction = newStatus.getDiection();
+            this.location = newStatus.getLocation();
         });
 
         return this.report();

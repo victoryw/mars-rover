@@ -1,4 +1,4 @@
-package com.thoughtworks.marsrover;
+package com.thoughtworks.marsrover.status;
 
 public class EastDirection extends Direction {
 
@@ -18,7 +18,7 @@ public class EastDirection extends Direction {
     }
 
     @Override
-    public Location move(Location location) {
-        return new Location(location.getX() - 1, location.getY());
+    public Location forward() {
+        return new Location(-1 , 0);
     }
 }
