@@ -18,6 +18,10 @@ public class MarsRover {
         this.direction = direction;
     }
 
+    public static MarsRover of(MarsRover marsRover) {
+        return new MarsRover(marsRover.location, marsRover.direction);
+    }
+
     public String report() {
         return String.format("%d %d %s", location.getX(), location.getY(), direction.getDirection());
     }
@@ -31,4 +35,7 @@ public class MarsRover {
         this.location = newStatus.getLocation();
     }
 
+    public Location getLocation() {
+        return location;
+    }
 }
